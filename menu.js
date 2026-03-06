@@ -22,10 +22,10 @@ const MenuSystem = {
     },
 
     bindEvents() {
-        // Filter buttons
-        Utils.$$('.filter-btn').forEach(btn => {
+        // Filter buttons — scoped to menu section only
+        Utils.$$('.menu-filters .filter-btn').forEach(btn => {
             btn.addEventListener('click', () => {
-                Utils.$$('.filter-btn').forEach(b => b.classList.remove('active'));
+                Utils.$$('.menu-filters .filter-btn').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
                 this.currentFilter = btn.getAttribute('data-filter');
                 this.render();
